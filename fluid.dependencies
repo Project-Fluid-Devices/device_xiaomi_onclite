@@ -1,0 +1,10 @@
+[
+ {
+   "repository": "kernel_xiaomi_onclite",
+   "target_path": "https://github.com/SamAs700/android_kernel_xiaomi_onclite"
+ },
+ {
+   "repository": "vendor_xiaomi_onclite",
+   "target_path": "https://github.com/SamAs700/vendor_xiaomi_onclite-12"
+ }
+]
