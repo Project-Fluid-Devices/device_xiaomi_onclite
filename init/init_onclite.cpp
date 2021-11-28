@@ -56,27 +56,23 @@ void property_override(string prop, string value)
 
 void vendor_load_properties()
 {
-    string device, model, desc;
-
-    string region = GetProperty("ro.boot.hwcountry", "");
-    string hwversion = GetProperty("ro.boot.hwversion", "");
-
-    if (region == "India" && hwversion == "1.19.0") {
-        device = "onc";
-        model = "Redmi Y3";
-    } else {
-        device = "onclite";
-        model = "Redmi 7";
-    }
+    const string brand = "google";
+    const string device = "raven";
+    const string model = "Pixel 6 Pro";
+    const string manufacturer = "Google";
+    const string mod_device = "raven";
 
     // Override all partitions' props
     string prop_partitions[] = { "", "odm.", "product.", "system.",
                     "system_ext.", "bootimage.", "vendor." };
 
     for (const string &prop : prop_partitions) {
+        property_override(string("ro.product.") + prop + string("brand"), brand);
         property_override(string("ro.product.") + prop + string("name"), device);
         property_override(string("ro.product.") + prop + string("device"), device);
         property_override(string("ro.product.") + prop + string("model"), model);
+        property_override(string("ro.product.") + prop + string("marketname"), model);
+        property_override(string("ro.product.") + prop + string("manufacturer"), manufacturer);
         property_override(string("ro.") + prop + string("build.product"), device);
     }
 
